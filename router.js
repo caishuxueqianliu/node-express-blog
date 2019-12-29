@@ -1,34 +1,29 @@
-/**
- * router.js 路由模块
- * 职责：
- *   处理路由
- *   根据不同的请求方法+请求路径设置具体的请求处理函数
- * 模块职责要单一，不要乱写
- * 我们划分模块的目的就是为了增强项目代码的可维护性
- * 提升开发效率
- */
 
+  // res.setHeader("Access-Control-Allow-Origin", "*");
 var fs = require('fs')
-var Student = require('./student-m')
+
 var express = require('express')
 var router = express.Router()
 
 
-
- router.get('/', function (req, res) {
-  Student.find(function (err, students) {  
-    if (err) {
-      return res.status(500).send('Server error.')
-    }
-     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.json(students)
- 
-  
-    })
+ router.get('/', function (req, res) { 
+ res.render("index.html")
   })
 
- router.get('/a', function (req, res) {
- res.json('students')
+ router.get('/login', function (req, res) {
+ res.render("login.html")
+  })
+
+  router.get('/register', function (req, res) {
+ res.render("register.html")
+  })
+
+   router.post('/login', function (req, res) {
+
+  })
+
+  router.post('/register', function (req, res) {
+console.log(req.body)
   })
 // 3. 把 router 导出
 module.exports = router
