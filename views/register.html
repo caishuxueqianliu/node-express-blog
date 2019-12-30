@@ -43,9 +43,9 @@
   </div>
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <script>
+    //异步ajax
     $('#register_form').on('submit', function (e) {
-     e.preventDefault()
-     console.log(e)
+      e.preventDefault()
       var formData = $(this).serialize()
       console.log(formData)
       $.ajax({
